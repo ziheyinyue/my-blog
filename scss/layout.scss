@@ -1,9 +1,27 @@
 @charset "utf-8";
 .l-inner{
     
-        max-width: calc(#{$width} + (24px*2));
+        max-width: calc(#{$width} + (20px*2));
         margin: auto;
-        padding: 0 24px;
+        padding: 0 20px;
     
 }
 
+.l-main {
+    @include max-screen($breakpoint-desktop){
+        margin-top: 60px;
+    }
+}
+
+.pc-hide{
+    display: none;
+    @include max-screen($breakpoint-tablet){
+        display: block;
+    }
+}
+.sp-hide{
+    display: block;
+    @include max-screen($breakpoint-tablet){
+        display: none;
+    }
+}

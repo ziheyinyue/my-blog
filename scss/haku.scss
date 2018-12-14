@@ -11,8 +11,27 @@
     z-index: 10;
     display: flex;
     align-items: center;
+    justify-content: center;
     opacity: .8;
     @include box-shadow;
+
+    &__inner {
+        width: 100%;
+
+        &:before {
+            @include max-screen($breakpoint-mobile) {
+                content: "";
+                width: 30px;
+                height: 30px;
+                background: url(images/sp_header_menu.png) top left no-repeat;
+                background-size: 30px;
+                margin-top: 60px;
+                position: absolute;
+                top: -45px;
+                left: 1em;
+            }
+        }
+    }
 
     &__nav {
         width: 100%;
@@ -21,15 +40,59 @@
         align-items: center;
         font-size: 2.0rem;
         font-weight: 500;
+        @include max-screen($breakpoint-tablet){
+            font-size: 1.6rem;
+        }
+
+        @include max-screen($breakpoint-mobile) {
+            position: absolute;
+            top: 60px;
+            flex-direction: column;
+            font-size: 1.6rem;
+            background: $headerPink;
+            transform: scale(0);
+            opacity: 0;
+            transform-origin: top left;
+            transition: all .5s ease;
+        }
+
+        &.active {
+            @include max-screen($breakpoint-mobile) {
+                transform: scale(1);
+                opacity: 1;
+                transform-origin: top left;
+                transition: all .5s ease;
+            }
+        }
 
         &__item {
             padding: .5em 1em;
+            display: block;
+
+            @include max-screen($breakpoint-mobile) {
+                width: 100%;
+                text-align: center;
+            }
+
+            &:not(:last-of-type) {
+                &:after {
+                    @include max-screen($breakpoint-mobile) {
+                        content: "";
+                        width: 100%;
+                        height: 1px;
+                        background: $pink3;
+                        display: block;
+                        margin-top: .5em;
+                    }
+                }
+            }
 
             &:link,
             &:visited {
                 color: $fontColorMain;
             }
-            &:hover{
+
+            &:hover {
                 background: $fontColorMain;
                 color: $headerPink;
             }
@@ -43,9 +106,18 @@
     flex-direction: row-reverse;
     justify-content: space-between;
     align-items: center;
+    @include max-screen($breakpoint-tablet){
+        padding-bottom: 2em;
+    }
+    @include max-screen($breakpoint-mobile){
+        flex-direction: column;
+    }
 
     &__img {
         width: 48%;
+        @include max-screen($breakpoint-mobile){
+            width: 100%;
+        }
 
         img {
             width: 100%;
@@ -58,6 +130,13 @@
         justify-content: center;
         align-items: center;
         margin-left: 4em;
+        @include max-screen($breakpoint-desktop){
+            margin-left: 2em;
+        }
+        @include max-screen($breakpoint-mobile){
+            margin-left: 1em;
+            margin-right: 1em;
+        }
     }
 
     &__ttl {
@@ -67,11 +146,30 @@
         text-align: center;
         line-height: .8;
         margin-bottom: .6em;
+        @include max-screen($breakpoint-desktop){
+                font-size: 6rem;
+            }
+            @include max-screen($breakpoint-tablet){
+                font-size: 4.8rem;
+            }
+        @include max-screen($breakpoint-mobile){
+            font-size: 3.6rem;
+        }
 
         &--bg {
             display: block;
             font-size: 12rem;
             opacity: .15;
+            white-space: nowrap;
+            @include max-screen($breakpoint-desktop){
+                font-size: 10rem;
+            }
+            @include max-screen($breakpoint-tablet){
+                font-size: 8rem;
+            }
+            @include max-screen($breakpoint-mobile){
+                font-size: 6.0rem;
+            }
         }
     }
 
@@ -81,6 +179,10 @@
         font-weight: 400;
         text-align: center;
         margin-bottom: 2em;
+        word-wrap: break-word;
+        @include max-screen($breakpoint-desktop){
+                font-size: 1.6rem;
+            }
     }
 
     &__btn {
@@ -90,6 +192,9 @@
         font-size: 2.4rem;
         font-weight: 400;
         padding: 1em 2em;
+        @include max-screen($breakpoint-desktop){
+                font-size: 1.6rem;
+            }
     }
 }
 
@@ -104,17 +209,41 @@
         display: block;
         text-align: center;
         line-height: .8;
+        @include max-screen($breakpoint-desktop){
+                font-size: 6rem;
+            }
+            @include max-screen($breakpoint-tablet){
+                font-size: 4.8rem;
+                padding: 1.5em 0 2.5em;
+            }
+        @include max-screen($breakpoint-mobile){
+            font-size: 3.6rem;
+        }
 
         &--bg {
             display: block;
             font-size: 12rem;
             opacity: .15;
+            white-space: nowrap;
+            @extend .breaking-out;
+            @include max-screen($breakpoint-desktop){
+                font-size: 10rem;
+            }
+            @include max-screen($breakpoint-tablet){
+                font-size: 8rem;
+            }
+            @include max-screen($breakpoint-mobile){
+                font-size: 6.0rem;
+            }
         }
     }
 
     &__content {
         width: 100%;
         margin-top: -8em;
+        @include max-screen($breakpoint-tablet){
+            margin-top: -4em;
+        }
 
         img {
             width: 100%;
@@ -124,6 +253,9 @@
 
 .p-work {
     padding: 6em 0;
+    @include max-screen($breakpoint-tablet){
+        padding: 3em 0;
+    }
 
     &__ttl {
         font-size: 6rem;
@@ -132,16 +264,37 @@
         text-align: center;
         line-height: .8;
         margin-bottom: 1.5em;
+        @include max-screen($breakpoint-desktop){
+                font-size: 6rem;
+            }
+            @include max-screen($breakpoint-tablet){
+                font-size: 4.8rem;
+            }
+        @include max-screen($breakpoint-mobile){
+            font-size: 3.6rem;
+        }
 
         &--bg {
             display: block;
             font-size: 12rem;
             opacity: .15;
+            white-space: nowrap;
+            @extend .breaking-out;
+            @include max-screen($breakpoint-desktop){
+                font-size: 10rem;
+            }
+            @include max-screen($breakpoint-tablet){
+                font-size: 8rem;
+            }
+            @include max-screen($breakpoint-mobile){
+                font-size: 6.0rem;
+            }
         }
     }
 
     &__content {
         display: flex;
+        justify-content: space-between;
         flex-wrap: wrap;
         margin-bottom: 1em;
 
@@ -149,9 +302,11 @@
             width: calc((100% - 32px) / 3);
             margin-bottom: 16px;
             position: relative;
-
-            &:not(:nth-of-type(3n)) {
-                margin-right: 16px;
+            @include max-screen($breakpoint-tablet){
+                width: calc((100% - 16px) / 2);
+            }
+            @include max-screen($breakpoint-mobile){
+                width: 100%;
             }
 
             &__img {
@@ -176,7 +331,8 @@
                         transition: all .5s ease;
                     }
                 }
-                .p-work__content__item__des{
+
+                .p-work__content__item__des {
                     visibility: visible;
                     transition: all .5s ease;
                 }
@@ -205,7 +361,7 @@
 
                 &__ttl {
                     text-align: center;
-                    
+
                 }
             }
         }
@@ -225,14 +381,26 @@
         display: flex;
         justify-content: space-between;
         padding: 0 3em;
+        @include max-screen($breakpoint-mobile){
+            padding: 0 1em;
+        }
 
         &__item {
             display: flex;
             align-items: center;
+            @include max-screen($breakpoint-mobile){
+                flex-direction: column;
+            }
 
             &__icon {
                 width: 34px;
                 margin-right: 1.5em;
+                @include max-screen($breakpoint-mobile){
+                    max-width: 28px;
+                    height: 28px;
+                    margin-right: 0;
+                    margin-bottom: .5em;
+                }
 
                 img {
                     width: 100%;
@@ -244,6 +412,9 @@
     &__bottom {
         text-align: center;
         font-size: 1.6rem;
+        @include max-screen($breakpoint-mobile){
+            font-size: 1.4rem;
+        }
 
         &:before {
             content: "";
@@ -252,6 +423,9 @@
             background: $pink2;
             display: block;
             margin: 1em auto;
+            @include max-screen($breakpoint-mobile){
+                margin: .5em auto;
+            }
         }
     }
 }

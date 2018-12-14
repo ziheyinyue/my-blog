@@ -9,3 +9,10 @@ $(function () {
         $(this).children('.p-work__content__item__des').css('display','none');
     });
 });
+
+//sp hamburger
+$(function(){
+    $('.p-header__inner').on('click', function(){
+        $(this).children('.p-header__nav').toggleClass('active');
+    });
+});
