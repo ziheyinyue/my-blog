@@ -1,0 +1,57 @@
+@charset "utf-8";
+
+/*********************************************************************************************************
+* Base * サイトのデフォルトのスタイル設定
+*********************************************************************************************************/
+*{
+	box-sizing: border-box;
+}
+html{
+	font-size: 62.5%;
+	
+}
+body{
+	//全体の設定
+	background: #fff;
+	overflow-x: hidden;
+	position: relative;
+	//書体の設定
+	font-size: 1.6rem;
+	line-height: 1.7;
+	letter-spacing: 0.1em;
+	@include gothic;
+	-ms-font-feature-settings: "normal";
+	font-weight: 400;
+	color: $fontColorMain;
+}
+
+//linkの設定
+a{
+    text-decoration: none;
+}
+select {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+}
+select::-ms-expand {
+	display: none;
+}
+
+/* iOSでのデフォルトスタイルをリセット */
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+    border-radius: 0;
+    -webkit-box-sizing: content-box;
+    -webkit-appearance: button;
+    appearance: button;
+    border: none;
+    box-sizing: border-box;
+    &::-webkit-search-decoration {
+      display: none;
+    }
+    &::focus {
+      outline-offset: -2px;
+    }
+}
