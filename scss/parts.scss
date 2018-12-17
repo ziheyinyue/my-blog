@@ -44,64 +44,72 @@
         }
     }
 }
-.c-color-button{
-	a{
-		display: inline-block;
-		color: $white;
-		font-size: 1.6rem;
-		font-weight: 500;
-		background: $fontColorMain;
-		padding: 1.2em 4em;
-		min-width: 35%;
-		text-align: center;
-		border-radius: 6px;
-		@include max-screen($breakpoint-mobile) {
-			min-width: 80%;
-    	}
-	}
-	&--center{
-		text-align: center;
-		a{
-			margin-right: auto;
-			margin-left: auto;
-		}
-		
-	}
-	&--large{
-		a{
-			min-width:80%;
-			@include max-screen($breakpoint-mobile) {
-				min-width: auto;
-				width: 100%;
-			}
-		}
-		
-	}
-	
+
+.c-color-button {
+    a {
+        display: inline-block;
+        color: $white;
+        font-size: 1.6rem;
+        font-weight: 500;
+        background: $fontColorMain;
+        padding: 1.2em 4em;
+        min-width: 35%;
+        text-align: center;
+        border-radius: 6px;
+
+        @include max-screen($breakpoint-mobile) {
+            min-width: 80%;
+        }
+    }
+
+    &--center {
+        text-align: center;
+
+        a {
+            margin-right: auto;
+            margin-left: auto;
+        }
+
+    }
+
+    &--large {
+        a {
+            min-width: 80%;
+
+            @include max-screen($breakpoint-mobile) {
+                min-width: auto;
+                width: 100%;
+            }
+        }
+
+    }
+
 }
 
 //汎用リスト
-.c-list{
-	&__item{
-		position: relative;
-		text-indent: -1em;
-		padding-left: 1em;
-		&:not(:last-child){
-			margin-bottom: 1em;
-		}
-		&:before{
-			content: "";
-			vertical-align: 0.1em;
-			display: inline-block;
-			background: $color-primary;
-			width: 0.5em;
-			height: 0.5em;
-			border-radius: 50%;
-			margin-right: 0.5em;
-			
-		}
-		
-	}
+.c-list {
+    &__item {
+        position: relative;
+        text-indent: -1em;
+        padding-left: 1em;
+
+        &:not(:last-child) {
+            margin-bottom: 1em;
+        }
+
+        &:before {
+            content: "";
+            vertical-align: 0.1em;
+            display: inline-block;
+            background: $color-primary;
+            width: 0.5em;
+            height: 0.5em;
+            border-radius: 50%;
+            margin-right: 0.5em;
+
+        }
+
+    }
 }
 
 //パンくず
@@ -114,9 +122,11 @@
         &__item {
             display: inline;
             font-size: 1.4rem;
-            a{
+
+            a {
+
                 &:visited,
-                &:link{
+                &:link {
                     color: $fontColorMain;
                 }
             }
@@ -134,12 +144,13 @@
 
 //見出し
 .c-title-leftbar {
-	padding: .5em 1em;
-	border-left: 3px solid $color-primary;
-	font-size: 2.4rem;
-	font-weight: 700;
+    padding: .5em 1em;
+    border-left: 3px solid $color-primary;
+    font-size: 2.4rem;
+    font-weight: 700;
 }
-.c-title-underbar{
+
+.c-title-underbar {
     padding: .5em 1em;
     border-bottom: 1px solid $color-primary;
     font-size: 2.4rem;
@@ -147,209 +158,239 @@
 }
 
 .c-title-primarycolor {
-	color: $fontColorMain;
-	font-size: 2.4rem;
-	font-weight: 700;
-	&--center{
-		text-align: center;
-	}
+    color: $fontColorMain;
+    font-size: 2.4rem;
+    font-weight: 700;
+
+    &--center {
+        text-align: center;
+    }
 }
 
 .c-title-normal {
-	font-size: 1.8rem;
-	font-weight: 700;
-	&--center{
-		text-align: center;
-	}
+    font-size: 1.8rem;
+    font-weight: 700;
+
+    &--center {
+        text-align: center;
+    }
 }
 
 .c-title-small {
-	font-size: 1.6rem;
-	font-weight: 700;
-	&--center{
-		text-align: center;
-	}
+    font-size: 1.6rem;
+    font-weight: 700;
+
+    &--center {
+        text-align: center;
+    }
 }
 
 //本文
-.c-text{
-	font-size: 1.6rem;
-	&--center{
-		text-align: center;
-        &--spleft{
+.c-text {
+    font-size: 1.6rem;
+    a{
+        &:visited,
+        &:link{
+            color: $fontColorMain;
+        }
+    }
+
+    &--center {
+        text-align: center;
+
+        &--spleft {
             text-align: center;
-            @include max-screen($breakpoint-mobile){
+
+            @include max-screen($breakpoint-mobile) {
                 text-align: left;
             }
         }
-	}
+    }
 }
 
 //下層汎用ページ レイアウト 1カラム
-.c-1column{
-	width: 100%;
-	max-width: 100%;
-	&__item{
-		text-align: center;
-		&__img{
-			
-		}
-		&__caption{
-			
-		}
-		&__movie{
-			
-		}
-	}
+.c-1column {
+    width: 100%;
+    max-width: 100%;
+
+    &__item {
+        text-align: center;
+
+        &__img {}
+
+        &__caption {}
+
+        &__movie {}
+    }
 }
 
 //下層汎用ページ レイアウト 2カラム
-.c-2column{
-	max-width: 100%;
-	display: flex;
-	justify-content: center;
-	@include max-screen($breakpoint-mobile) {
-		flex-direction: column;
-	}
-	&__item{
-		width: calc((100% - 2em) / 2);
-		max-width: calc((100% - 2em) / 2);
-		text-align: center;
-		&:not(:last-child){
-			margin-right: 2em;
-		}
-		@include max-screen($breakpoint-mobile) {
-			max-width: 100%;
-			&:not(:last-child){
-				margin-bottom: 1em;
-				margin-right: 0;
-			}
-		}
-		
-		&__img{
-			
-		}
-		&__caption{
-			
-		}
-		&__text{
-			text-align: left;
-		}
-		&__movie{
-			
-		}
-	}
+.c-2column {
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+
+    @include max-screen($breakpoint-mobile) {
+        flex-direction: column;
+    }
+
+    &__item {
+        width: calc((100% - 2em) / 2);
+        max-width: calc((100% - 2em) / 2);
+        text-align: center;
+
+        &:not(:last-child) {
+            margin-right: 2em;
+        }
+
+        @include max-screen($breakpoint-mobile) {
+            max-width: 100%;
+
+            &:not(:last-child) {
+                margin-bottom: 1em;
+                margin-right: 0;
+            }
+        }
+
+        &__img {}
+
+        &__caption {}
+
+        &__text {
+            text-align: left;
+        }
+
+        &__movie {}
+    }
 }
 
 //下層汎用ページ レイアウト 3カラム
-.c-3column{
-	max-width: 100%;
-	display: flex;
-	justify-content: center;
-	@include max-screen($breakpoint-mobile) {
-		flex-direction: column;
-	}
-	&__item{
-		width: calc((100% - 4em) / 3);
-		max-width: calc((100% - 4em) / 3);
-		text-align: center;
-		&:not(:last-child){
-			margin-right: 2em;
-		}
-		@include max-screen($breakpoint-mobile) {
-			max-width: 100%;
-			&:not(:last-child){
-				margin-bottom: 1em;
-				margin-right: 0;
-			}
-		}
-		
-		&__img{
-			
-		}
-		&__caption{
-			
-		}
-		&__text{
-			text-align: left;
-		}
-	}
+.c-3column {
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+
+    @include max-screen($breakpoint-mobile) {
+        flex-direction: column;
+    }
+
+    &__item {
+        width: calc((100% - 4em) / 3);
+        max-width: calc((100% - 4em) / 3);
+        text-align: center;
+
+        &:not(:last-child) {
+            margin-right: 2em;
+        }
+
+        @include max-screen($breakpoint-mobile) {
+            max-width: 100%;
+
+            &:not(:last-child) {
+                margin-bottom: 1em;
+                margin-right: 0;
+            }
+        }
+
+        &__img {}
+
+        &__caption {}
+
+        &__text {
+            text-align: left;
+        }
+    }
 }
 
 //背景付きテキストエリア
-.c-background-block{
-	padding: 2em;
-	background: $pink2;
-	> *:last-child{
-		margin-bottom: 0;
-	}
+.c-background-block {
+    padding: 2em;
+    background: $pink2;
+
+    > *:last-child {
+        margin-bottom: 0;
+    }
 }
 
 //汎用table
-.c-table{
-	border: 1px solid $pink3;
-	width: 100%;
-	table-layout: fixed;
-	border-collapse: collapse;
-	&__title{
-		background: $pink2;
-		font-weight: 700;
-		padding: 1em;
-		width: 20%;
-		max-width: 20%;
-		&:not(:last-child){
-			border-right: 1px solid $pink3;
-		}
-		@include max-screen($breakpoint-mobile) {
-			width: 100%;
-			max-width: none;
-			&:not(:last-child){
-				border-right: 0;
-				border-bottom: 1px solid $pink3;
-			}
-			
-		}
-	}
-	&__data{
-		padding: 1em;
-		&:not(:last-child){
-			border-right: 1px solid $pink3;
-		}
-		@include max-screen($breakpoint-mobile) {
-			&:not(:last-child){
-				border-right: 0;
-				border-bottom: 1px solid $pink3;
-			}
-		}
-	}
-	tr{
-		&:not(:last-child){
-			border-bottom: 1px solid $pink3;
-		}
-		
-	}
-	@include max-screen($breakpoint-mobile) {
-		display: block;
-		tbody, tr, th, td {
-			display: block;
-		}
-	}
+.c-table {
+    border: 1px solid $pink3;
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+
+    &__title {
+        background: $pink2;
+        font-weight: 700;
+        padding: 1em;
+        width: 20%;
+        max-width: 20%;
+
+        &:not(:last-child) {
+            border-right: 1px solid $pink3;
+        }
+
+        @include max-screen($breakpoint-mobile) {
+            width: 100%;
+            max-width: none;
+
+            &:not(:last-child) {
+                border-right: 0;
+                border-bottom: 1px solid $pink3;
+            }
+
+        }
+    }
+
+    &__data {
+        padding: 1em;
+
+        &:not(:last-child) {
+            border-right: 1px solid $pink3;
+        }
+
+        @include max-screen($breakpoint-mobile) {
+            &:not(:last-child) {
+                border-right: 0;
+                border-bottom: 1px solid $pink3;
+            }
+        }
+    }
+
+    tr {
+        &:not(:last-child) {
+            border-bottom: 1px solid $pink3;
+        }
+
+    }
+
+    @include max-screen($breakpoint-mobile) {
+        display: block;
+
+        tbody,
+        tr,
+        th,
+        td {
+            display: block;
+        }
+    }
 }
 
 //スクロールエリア
 .c-block--scroll {
-	max-height: 222px;
+    max-height: 222px;
     overflow-y: scroll;
     background: $white;
     padding: 2em;
-    @include max-screen($breakpoint-mobile){
+
+    @include max-screen($breakpoint-mobile) {
         padding: 1em;
     }
 }
 
 //submitボタン
-.c-color-button{
-    input[type="submit"]{
+.c-color-button {
+    input[type="submit"] {
         background: $color-primary;
         color: $white;
         font-weight: 550;
@@ -362,25 +403,49 @@
 }
 
 //top title
-.c-topttl{
+.c-topttl {
     position: relative;
-    &__img{
-        img{
+
+    &__img {
+        img {
             width: 100%;
         }
     }
-    &__ttl{
+
+    &__ttl {
         position: absolute;
         top: 50%;
         left: 0;
-        transform: translate(0,-50%);
+        transform: translate(0, -50%);
         font-size: 4.8rem;
         font-weight: 700;
-        @include max-screen($breakpoint-mobile){
+
+        @include max-screen($breakpoint-mobile) {
             font-size: 3.6rem;
             text-align: center;
             left: 50%;
-            transform: translate(-50%,-50%);
+            transform: translate(-50%, -50%);
         }
+    }
+}
+
+.c-totop {
+    position: fixed;
+    bottom: 0;
+    right: 3%;
+    width: 0;
+    height: 0;
+    border-left: 35px solid transparent;
+    border-right: 35px solid transparent;
+    border-bottom: 45px solid $pink3;
+    color: $fontColorMain;
+    
+    &__text{
+        font-size: 1.2rem;
+        font-weight: 500;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,100%);
     }
 }

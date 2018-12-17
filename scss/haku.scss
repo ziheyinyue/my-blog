@@ -54,8 +54,8 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        font-size: 2.0rem;
-        font-weight: 500;
+        font-size: 1.8rem;
+        font-weight: 450;
 
         @include max-screen($breakpoint-tablet) {
             font-size: 1.6rem;
@@ -476,6 +476,31 @@
         }
     }
 
+    &__weixin {
+        position: relative;
+
+        &:hover {
+            .p-footer__weixin__qr {
+                transform: scale(1);
+                transform-origin: bottom center;
+                opacity: 1;
+                transition: all .5s ease-in-out;
+            }
+        }
+
+        &__qr {
+            position: absolute;
+            width: 150px;
+            max-width: 150px;
+            top: -170px;
+            right: 0;
+            transform: scale(0);
+            transform-origin: bottom center;
+            opacity: 0;
+            transition: all .5s ease-in-out;
+        }
+    }
+
     &__bottom {
         text-align: center;
         font-size: 1.6rem;
@@ -599,7 +624,8 @@
     display: flex;
     justify-content: center;
 
-    &__item {
+    &__item,
+    .page-numbers {
         padding: .5em 1em;
         background: $pink2;
 
@@ -619,11 +645,20 @@
                 margin-right: 4px;
             }
         }
+    }
 
-        &.current {
-            background: $fontColorMain;
-            color: $pink2;
-            font-weight: 500;
+    .current {
+        background: $fontColorMain;
+        color: $pink2;
+        font-weight: 500;
+        margin-right: 16px;
+
+        @include max-screen($breakpoint-mobile) {
+            margin-right: 4px;
         }
     }
+}
+
+.weixinqr {
+    max-width: 200px;
 }
