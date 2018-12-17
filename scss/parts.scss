@@ -4,10 +4,10 @@
 .c-button {
     a {
         display: inline-block;
-        border: 1px solid lighten($color-primary, 10%);
+        border: 1px solid lighten($fontColorMain, 10%);
         border-radius: 3em;
         background: $white;
-        color: lighten($color-primary, 10%);
+        color: lighten($fontColorMain, 10%);
         text-align: center;
         min-width: 25%;
         font-size: 1.8rem;
@@ -20,8 +20,8 @@
             &:before {
                 content: "";
                 display: inline-block;
-                background: linear-gradient(to bottom left, rgba(255, 255, 255, 0) 50%, $color-primary 50.5%) no-repeat top left/100% 50%,
-                    linear-gradient(to top left, rgba(255, 255, 255, 0) 50%, $color-primary 50.5%) no-repeat bottom right/100% 50%;
+                background: linear-gradient(to bottom left, rgba(255, 255, 255, 0) 50%, $fontColorMain 50.5%) no-repeat top left/100% 50%,
+                    linear-gradient(to top left, rgba(255, 255, 255, 0) 50%, $fontColorMain 50.5%) no-repeat bottom right/100% 50%;
                 width: 16px;
                 height: 16px;
                 margin-right: 0.5em;
@@ -50,7 +50,7 @@
 		color: $white;
 		font-size: 1.6rem;
 		font-weight: 500;
-		background: $color-primary;
+		background: $fontColorMain;
 		padding: 1.2em 4em;
 		min-width: 35%;
 		text-align: center;
@@ -114,6 +114,12 @@
         &__item {
             display: inline;
             font-size: 1.4rem;
+            a{
+                &:visited,
+                &:link{
+                    color: $fontColorMain;
+                }
+            }
 
             &:not(:last-of-type) {
                 &:after {
@@ -133,9 +139,15 @@
 	font-size: 2.4rem;
 	font-weight: 700;
 }
+.c-title-underbar{
+    padding: .5em 1em;
+    border-bottom: 1px solid $color-primary;
+    font-size: 2.4rem;
+    font-weight: 700;
+}
 
 .c-title-primarycolor {
-	color: $color-primary;
+	color: $fontColorMain;
 	font-size: 2.4rem;
 	font-weight: 700;
 	&--center{
@@ -267,7 +279,7 @@
 //背景付きテキストエリア
 .c-background-block{
 	padding: 2em;
-	background: $gray-1;
+	background: $pink2;
 	> *:last-child{
 		margin-bottom: 0;
 	}
@@ -275,25 +287,25 @@
 
 //汎用table
 .c-table{
-	border: 1px solid $gray-4;
+	border: 1px solid $pink3;
 	width: 100%;
 	table-layout: fixed;
 	border-collapse: collapse;
 	&__title{
-		background: $gray-1;
+		background: $pink2;
 		font-weight: 700;
 		padding: 1em;
 		width: 20%;
 		max-width: 20%;
 		&:not(:last-child){
-			border-right: 1px solid $gray-4;
+			border-right: 1px solid $pink3;
 		}
 		@include max-screen($breakpoint-mobile) {
 			width: 100%;
 			max-width: none;
 			&:not(:last-child){
 				border-right: 0;
-				border-bottom: 1px solid $gray-4;
+				border-bottom: 1px solid $pink3;
 			}
 			
 		}
@@ -301,18 +313,18 @@
 	&__data{
 		padding: 1em;
 		&:not(:last-child){
-			border-right: 1px solid $gray-4;
+			border-right: 1px solid $pink3;
 		}
 		@include max-screen($breakpoint-mobile) {
 			&:not(:last-child){
 				border-right: 0;
-				border-bottom: 1px solid $gray-4;
+				border-bottom: 1px solid $pink3;
 			}
 		}
 	}
 	tr{
 		&:not(:last-child){
-			border-bottom: 1px solid $gray-4;
+			border-bottom: 1px solid $pink3;
 		}
 		
 	}
@@ -346,5 +358,29 @@
         padding: 1.5em 6em;
         border-radius: 4px;
         cursor: pointer;
+    }
+}
+
+//top title
+.c-topttl{
+    position: relative;
+    &__img{
+        img{
+            width: 100%;
+        }
+    }
+    &__ttl{
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translate(0,-50%);
+        font-size: 4.8rem;
+        font-weight: 700;
+        @include max-screen($breakpoint-mobile){
+            font-size: 3.6rem;
+            text-align: center;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
     }
 }

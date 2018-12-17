@@ -13,6 +13,7 @@ $(function () {
 //sp hamburger
 $(function(){
     $('.p-header__inner').on('click', function(){
+        $(this).toggleClass('active');
         $(this).children('.p-header__nav').toggleClass('active');
     });
 });

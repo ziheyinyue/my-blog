@@ -18,11 +18,23 @@
 
 .pc-hide{
     display: none;
-    @include max-screen($breakpoint-tablet){
+    @include max-screen($breakpoint-mobile){
         display: block;
     }
 }
 .sp-hide{
+    display: block;
+    @include max-screen($breakpoint-mobile){
+        display: none;
+    }
+}
+.pc-none{
+    display: none;
+    @include max-screen($breakpoint-tablet){
+        display: block;
+    }
+}
+.tb-none{
     display: block;
     @include max-screen($breakpoint-tablet){
         display: none;
