@@ -40,6 +40,7 @@ if ( ! function_exists( 'company_setup' ) ) :
 		 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
 		 */
 		add_theme_support( 'post-thumbnails' );
+        add_image_size('thumb300',300,300,true);
 
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus( array(
@@ -167,10 +168,27 @@ remove_action('wp_head', 'print_emoji_detection_script', 7);
 remove_action('wp_print_styles', 'print_emoji_styles');
 
 /**
- * 記事の自動整形を無効にする
+ * 投稿記事の自動整形を無効にする
  */
-remove_filter('the_content', 'wpautop');
-remove_filter('the_excerpt', 'wpautop');
+add_action( 'wp_head', function() {
+  if (!is_singular('post')) {
+      // 本文
+      remove_filter('the_content', 'wpautop');
+      // 抜粋
+      remove_filter('the_excerpt', 'wpautop');
+  }
+});
+
+/**
+author redirectをさせない
+ */
+function author_archive_redirect() {
+   if( is_author() ) {
+       wp_redirect( home_url(), 301 );
+       exit;
+   }
+}
+add_action( 'template_redirect', 'author_archive_redirect' );
 
 /**
  * 管理画面に投稿IDを出す

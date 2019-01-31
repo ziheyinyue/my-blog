@@ -64,6 +64,8 @@
         @include max-screen($breakpoint-mobile) {
             position: absolute;
             top: 60px;
+            left: 0;
+            right: 0;
             flex-direction: column;
             font-size: 1.6rem;
             background: $headerPink;
