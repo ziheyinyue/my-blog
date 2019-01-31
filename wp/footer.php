@@ -26,7 +26,7 @@
                 </p>
                 <p class="p-footer__top__item__text">bilibili</p>
             </a>
-            <a class="p-footer__top__item p-footer__weixin" href="contact.html">
+            <a class="p-footer__top__item p-footer__weixin" href="<?php echo home_url();?>/contact/">
                 <p class="p-footer__top__item__icon">
                     <img src="<?php echo get_template_directory_uri(); ?>/images/footer_weixin@2x.png" alt="">
                 </p>
@@ -36,7 +36,7 @@
                 </p>
             </a>
         </div>
-        <p class="p-footer__bottom">&copy; Copyright 2018 BAI GE</p>
+        <p class="p-footer__bottom">&copy; Copyright 2019 BAI GE</p>
     </div>
     <a href="#pagetop" class="c-totop">
         <span class="c-totop__text">TOP</span>

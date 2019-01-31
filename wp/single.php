@@ -22,7 +22,7 @@ get_header();
         <div class="l-underpage__inner l-newsa__wrap p-newsd">
             <?php if(have_posts()): while(have_posts()):the_post(); ?>
 
-            <h1 class="c-title-leftbar u-mb20">
+            <h1 class="c-title-underbar u-mb20">
                 <?php the_title(); ?>
             </h1>
             <div class="c-text u-mb20">
@@ -35,7 +35,7 @@ get_header();
             <?php endif; ?>
 
             <p class="c-color-button c-color-button--center u-mb30">
-                <a href="<?php echo home_url();?>/news/" class="p-newsd__button">記事一覧</a>
+                <a href="<?php echo home_url();?>/portfolio/" class="p-newsd__button">記事一覧</a>
             </p>
 
         </div>
