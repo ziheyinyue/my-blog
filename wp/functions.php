@@ -263,7 +263,7 @@ add_shortcode('t_url', 'shortcode_templateurl');
 function my_pagenavi($args=array()){
 if( !function_exists('wp_pagenavi') ) return;
 $defaults = array(
-'wrapper_class' => 'p-newsa__page'
+'wrapper_class' => 'p-pages'
 );
 $args = is_array($args) ? array_merge($defaults, $args) : $args;
 wp_pagenavi($args);
@@ -286,4 +286,12 @@ return 'next page-numbers';
 add_filter('wp_pagenavi_class_previouspostslink', 'my_filter_wp_pagenavi_class_previouspostslink');
 function my_filter_wp_pagenavi_class_previouspostslink($class_name) {
 return 'prev page-numbers';
+}
+
+//サムネイル画像のサイズを削除
+add_filter( 'post_thumbnail_html', 'custom_attribute' );
+function custom_attribute( $html ){
+    // width height を削除する
+    $html = preg_replace('/(width|height)="\d*"\s/', '', $html);
+    return $html;
 }
