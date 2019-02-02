@@ -9,10 +9,10 @@
 
 .l-main {
     &--top{
-        margin-top: 60px;
+        margin-top: 30px;
     }
     @include max-screen($breakpoint-desktop){
-        margin-top: 60px;
+        margin-top: 30px;
     }
 }
 

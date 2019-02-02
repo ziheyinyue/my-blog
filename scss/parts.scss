@@ -119,7 +119,7 @@
         flex-wrap: wrap;
         align-items: center;
 
-        &__item {
+        li {
             display: inline;
             font-size: 1.4rem;
 
@@ -206,6 +206,9 @@
             }
         }
     }
+    &--underline{
+        text-decoration: underline;
+    }
 }
 
 //下層汎用ページ レイアウト 1カラム
@@ -244,6 +247,7 @@
         }
 
         @include max-screen($breakpoint-mobile) {
+            width: 100%;
             max-width: 100%;
 
             &:not(:last-child) {
@@ -284,6 +288,7 @@
         }
 
         @include max-screen($breakpoint-mobile) {
+            width: 100%;
             max-width: 100%;
 
             &:not(:last-child) {
@@ -439,6 +444,11 @@
     border-right: 35px solid transparent;
     border-bottom: 45px solid $pink3;
     color: $fontColorMain;
+    transition: all .5s ease;
+    &:hover{
+        transform: scale(1.2);
+        transition: all .5s ease;
+    }
     
     &__text{
         font-size: 1.2rem;

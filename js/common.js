@@ -26,3 +26,37 @@ $(document).ready(function () {
         a > 800 ? $(".c-totop").fadeIn() : $(".c-totop").fadeOut();
     });
 });
+
+
+// 画面サイズ変更時にも実行
+//$(window).on('resize', function () {
+//    // リサイズ後の高さを正確に取得するため、タイマーを使って遅延実行する。
+//    if (timer !== false) {
+//        clearTimeout(timer);
+//    }
+//    var timer = setTimeout(function () {
+//        // 高さを初期化する。
+//        $('#p-thumb').children('img').height('auto');
+//        $('#p-thumb').children('img').css('visibility', 'visible');
+//
+//        var arr_height = [];
+//        $('#p-thumb').each(function () {
+//            arr_height.push($(this).height());
+//        });
+//        $('#p-thumb').height(Math.max.apply(null, arr_height));
+//
+//        var ttl_height = [];
+//        $('#p-thumb').each(function () {
+//            ttl_height.push($(this).height());
+//        });
+//        $('#p-thumb').height(Math.max.apply(null, ttl_height));
+//    }, 200);
+//
+//}).trigger('resize');
+
+//$(function () {
+//    $('#p-thumb').each(function(){
+//        this.children('img').height('auto');
+//        this.children('img').css('visibility', 'visible');
+//    });
+//});

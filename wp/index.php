@@ -61,8 +61,8 @@ get_header();
 		?>
                 <li class="p-work__content__item">
                     <a href="<?php the_permalink(); ?>">
-                        <p class="p-work__content__item__img">
-                            <img src="<?php the_post_thumbnail('large'); ?>" alt="<?php the_title(); ?>">
+                        <p class="p-work__content__item__img" id="p-thumb">
+                            <?php the_post_thumbnail('full'); ?>
                         </p>
                         <div class="p-work__content__item__des">
                             <p class="p-work__content__item__des__category">
