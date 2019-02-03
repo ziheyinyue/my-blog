@@ -1,4 +1,3 @@
-?>
 
 <?php
 /**
@@ -47,11 +46,11 @@ get_header();
 ?>
         </ul>
         <ul class="p-contents">
-           <?php
+            <?php
 				$paged = get_query_var('paged') ? get_query_var('paged') : 1 ;
 				$args = array(
 				'post-type' => 'post',
-				'posts_per_page' => 10,
+				'posts_per_page' => 12,
 				'paged' => $paged
 				);
 				$my_query = new WP_Query($args);
@@ -62,32 +61,34 @@ get_header();
             <li class="p-contents__item">
                 <a href="<?php the_permalink(); ?>">
                     <p class="p-contents__item__img" id="p-thumb">
-                       <?php the_post_thumbnail(); ?>
+                        <?php the_post_thumbnail(); ?>
                     </p>
-                    <span class="p-contents__item__category"><?php $cat = get_the_category(); $cat = $cat[0]; { echo $cat->cat_name; } ?></span>
-                    <p class="p-contents__item__ttl"><?php
+                    <span class="p-contents__item__category">
+                        <?php $cat = get_the_category(); $cat = $cat[0]; { echo $cat->cat_name; } ?></span>
+                    <p class="p-contents__item__ttl">
+                        <?php
 						if(mb_strlen($post->post_title, 'UTF-8')>40){
 							$title= mb_substr($post->post_title, 0, 40, 'UTF-8');
 							echo $title.'…';
 						}else{
 							echo $post->post_title;
 						}
-					?></p>
+					?>
+                    </p>
                 </a>
             </li>
             <?php endwhile; else : ?>
-				<!-- ▼ 記事がないときの処理 -->
-				<p class="c-text">
-					記事が見つかりませんでした。
-				</p>
+            <!-- ▼ 記事がないときの処理 -->
+            <p class="c-text">
+                記事が見つかりませんでした。
+            </p>
 
-			<?php endif; ?>
+            <?php endif; ?>
         </ul>
+        <?php
+         if ($my_query->max_num_pages > 1) ;?>
         <ul class="p-pages">
             <?php
-				if ($my_query->max_num_pages > 1) ;?>
-				<div class="p-newsa__page">
-			<?php
 				if ($my_query->max_num_pages > 1) {
 				echo paginate_links(array(
 				'base' => get_pagenum_link(1) . '%_%',
@@ -98,7 +99,7 @@ get_header();
 				}
 			?>
         </ul>
-<?php wp_reset_postdata(); ?>
+        <?php wp_reset_postdata(); ?>
     </section>
 
 </main>
