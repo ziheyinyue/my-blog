@@ -11,7 +11,7 @@ get_header();
 <main class="l-main--top">
     <section class="l-inner">
         <div class="l-bread c-bread u-mb20">
-            <ul class="c-bread__inner u-mt50">
+            <ul class="c-bread__inner">
                 <?php if(function_exists('bcn_display'))
 			{
 				bcn_display_list();
