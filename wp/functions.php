@@ -295,6 +295,3 @@ function custom_attribute( $html ){
     $html = preg_replace('/(width|height)="\d*"\s/', '', $html);
     return $html;
 }
-
-//去除顶部工具条
-add_filter('show_admin_bar', '__return_false');
